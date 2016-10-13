@@ -15,22 +15,17 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     // Red c0392b
     // Orange e67e22
     //
-    let backgroundRed = UIColor.hexStringToUIColor(hex: "C0392b")
-    let backgroundOrange = UIColor.hexStringToUIColor(hex: "#E67E22")
-    let backgroundYellow = UIColor.hexStringToUIColor(hex: "F1C40F")
-    let backgroundGreen = UIColor.hexStringToUIColor(hex: "2ECC71")
-    let backgroundBlue = UIColor.hexStringToUIColor(hex: "3498DB")
-    let backgroundPurple = UIColor.hexStringToUIColor(hex: "9B59B6")
-    let backgroundClear = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
     
-//    var selectedColor
+    let defaults = UserDefaults(suiteName: "group.method.WidgetDemo")
     
     
     @IBOutlet var widgetSuperView: UIView!
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        widgetSuperView.backgroundColor = backgroundRed
+        
+        self.view.backgroundColor = getColorFromDefaults()
+        
         // Do any additional setup after loading the view from its nib.
     }
     
@@ -49,6 +44,36 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         
         
         completionHandler(NCUpdateResult.newData)
+    }
+    
+    // Helper method to return the UIColor recorded into the UserDefaults, if error occurs, return clear color
+    func getColorFromDefaults() -> UIColor {
+        guard let defaults = defaults
+            else {
+                print("Couldn't Get App Group Defaults")
+                return UIColor.clear
+        }
+        guard let red = defaults.object(forKey: "SelectedRedValue") as? Float
+            else {
+                print("Couldn't fetch from NSUserDefaults with given key")
+                return UIColor.clear
+        }
+        guard let green = defaults.object(forKey: "SelectedGreenValue") as? Float
+            else {
+                print("Couldn't fetch from NSUserDefaults with given key")
+                return UIColor.clear
+        }
+        guard let blue = defaults.object(forKey: "SelectedBlueValue") as? Float
+            else {
+                print("Couldn't fetch from NSUserDefaults with given key")
+                return UIColor.clear
+        }
+        guard let alpha = defaults.object(forKey: "SelectedAlphaValue") as? Float
+            else {
+                print("Couldn't fetch from NSUserDefaults with given key")
+                return UIColor.clear
+        }
+        return UIColor(colorLiteralRed: red, green: green, blue: blue, alpha: alpha)
     }
     
     
