@@ -29,10 +29,10 @@
                                         <color key="backgroundColor" red="0.75294117650000003" green="0.22352941179999999" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                         <state key="normal" title="Red   ">
-                                            <color key="titleColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="buttonTappedWithSender:" destination="bQG-Hb-Vx7" eventType="touchUpInside" id="F69-CV-ezt"/>
+                                            <action selector="buttonTapped:" destination="bQG-Hb-Vx7" eventType="touchUpInside" id="F7f-LE-GQJ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Smt-2U-HZj">
@@ -42,7 +42,7 @@
                                             <color key="titleColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="buttonTappedWithSender:" destination="bQG-Hb-Vx7" eventType="touchUpInside" id="3UU-z7-8Lq"/>
+                                            <action selector="buttonTapped:" destination="bQG-Hb-Vx7" eventType="touchUpInside" id="5y8-NK-jQP"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2hO-lv-j4z">
@@ -52,7 +52,7 @@
                                             <color key="titleColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="buttonTappedWithSender:" destination="bQG-Hb-Vx7" eventType="touchUpInside" id="ZMr-qo-5K6"/>
+                                            <action selector="buttonTapped:" destination="bQG-Hb-Vx7" eventType="touchUpInside" id="qVv-gv-Q94"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JmY-dx-iHH">
@@ -62,7 +62,7 @@
                                             <color key="titleColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="buttonTappedWithSender:" destination="bQG-Hb-Vx7" eventType="touchUpInside" id="8WL-Bn-5bv"/>
+                                            <action selector="buttonTapped:" destination="bQG-Hb-Vx7" eventType="touchUpInside" id="Ixo-1B-p3f"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sC6-rW-XV5">
@@ -72,7 +72,7 @@
                                             <color key="titleColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="buttonTappedWithSender:" destination="bQG-Hb-Vx7" eventType="touchUpInside" id="eBQ-2g-sB4"/>
+                                            <action selector="buttonTapped:" destination="bQG-Hb-Vx7" eventType="touchUpInside" id="N2e-sm-TXQ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Stu-Kw-Ub2">
@@ -82,7 +82,7 @@
                                             <color key="titleColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="buttonTappedWithSender:" destination="bQG-Hb-Vx7" eventType="touchUpInside" id="BqB-BP-kP1"/>
+                                            <action selector="buttonTapped:" destination="bQG-Hb-Vx7" eventType="touchUpInside" id="98Y-Dw-TSu"/>
                                         </connections>
                                     </button>
                                 </subviews>

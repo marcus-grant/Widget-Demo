@@ -12,12 +12,12 @@ import NotificationCenter
 
 class ViewController: UIViewController {
 
-    let redColor = UIColor.hexStringToUIColor(hex: "C0392b")
-    let orangeColor = UIColor.hexStringToUIColor(hex: "#E67E22")
-    let yellowColor = UIColor.hexStringToUIColor(hex: "F1C40F")
-    let greenColor = UIColor.hexStringToUIColor(hex: "2ECC71")
-    let blueColor = UIColor.hexStringToUIColor(hex: "3498DB")
-    let purpleColor = UIColor.hexStringToUIColor(hex: "9B59B6")
+    let redColor = UIColor(red: 192, green: 57, blue: 43)
+    let orangeColor = UIColor.hexStringToUIColor("#E67E22")
+    let yellowColor = UIColor.hexStringToUIColor("F1C40F")
+    let greenColor = UIColor.hexStringToUIColor("2ECC71")
+    let blueColor = UIColor.hexStringToUIColor("3498DB")
+    let purpleColor = UIColor.hexStringToUIColor("9B59B6")
     let clearColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
     
     var selectedColor: UIColor? /*{
@@ -50,7 +50,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func buttonTapped(sender: AnyObject) {
+    @IBAction func buttonTapped(_ sender: AnyObject) {
         guard let button = sender as? UIButton else {
             return
         }
@@ -87,10 +87,10 @@ class ViewController: UIViewController {
         }
         printString += "button pushed!"
         print(printString)
-        writeToDefaults(color: selectedColor!)
+        writeToDefaults(selectedColor!)
     }
 
-    func writeToDefaults(color: UIColor) {
+    func writeToDefaults(_ color: UIColor) {
         let backgroundColorValues = selectedColor!.components
         defaults?.set(backgroundColorValues.red, forKey: "SelectedRedValue")
         defaults?.set(backgroundColorValues.green, forKey: "SelectedGreenValue")
@@ -116,11 +116,11 @@ extension UIColor {
         self.init(red:(hexInt >> 16) & 0xff, green:(hexInt >> 8) & 0xff, blue:hexInt & 0xff)
     }
     
-    static func hexStringToUIColor (hex:String) -> UIColor {
-        var cString:String = hex.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
+    static func hexStringToUIColor (_ hex:String) -> UIColor {
+        var cString:String = hex.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         if (cString.hasPrefix("#")) {
             let index: String.Index = cString.index(cString.startIndex, offsetBy: 1)
-            return hexStringToUIColor(hex: cString.substring(from: index))
+            return hexStringToUIColor(cString.substring(from: index))
         }
         
         if ((cString.characters.count) != 6) {

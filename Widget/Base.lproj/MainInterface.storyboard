@@ -15,30 +15,86 @@
                         <viewControllerLayoutGuide type="bottom" id="FKl-LY-JtV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="37"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello World" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="GcN-lo-r42">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R0N-JT-Jvi" userLabel="Upper Content View">
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZRx-en-9HL">
+                                        <color key="backgroundColor" red="0.75294117650000003" green="0.22352941179999999" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="6Wx-e0-yeU"/>
+                                            <constraint firstAttribute="width" id="ffk-Vd-5Dc"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Hello World" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="GcN-lo-r42">
+                                        <frame key="frameInset" minX="16" width="350" height="16"/>
+                                        <color key="backgroundColor" red="0.013087601133989294" green="0.54753605769230762" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.3485073045871544" green="0.40945647714644423" blue="0.54753605769230762" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="ZRx-en-9HL" firstAttribute="top" secondItem="R0N-JT-Jvi" secondAttribute="top" id="CFP-wT-Zng"/>
+                                    <constraint firstAttribute="trailing" secondItem="GcN-lo-r42" secondAttribute="trailing" id="LsP-0W-hMA"/>
+                                    <constraint firstItem="GcN-lo-r42" firstAttribute="top" secondItem="R0N-JT-Jvi" secondAttribute="top" id="S0d-77-rPF"/>
+                                    <constraint firstItem="ZRx-en-9HL" firstAttribute="leading" secondItem="R0N-JT-Jvi" secondAttribute="leading" id="SkV-Uc-4Ux"/>
+                                    <constraint firstItem="GcN-lo-r42" firstAttribute="leading" secondItem="ZRx-en-9HL" secondAttribute="trailing" id="XBO-cp-s5e"/>
+                                    <constraint firstAttribute="bottom" secondItem="GcN-lo-r42" secondAttribute="bottom" id="a1L-7N-4kF"/>
+                                    <constraint firstAttribute="height" secondItem="ZRx-en-9HL" secondAttribute="height" id="weH-5p-jJV"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Mfp-oE-hxw" userLabel="Lower Stack View">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tro-1U-sMo">
+                                        <color key="backgroundColor" red="0.60784313729999995" green="0.34901960780000002" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="QR">
+                                            <color key="titleColor" red="0.94509803920000002" green="0.76862745099999996" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="qrButtonTapped:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="dBG-kf-dvM"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qqM-nM-DXc">
+                                        <color key="backgroundColor" red="0.60784313729999995" green="0.34901960780000002" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Method">
+                                            <color key="titleColor" red="0.94509803920000002" green="0.76862745099999996" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e6n-tn-qqH">
+                                        <color key="backgroundColor" red="0.60784313729999995" green="0.34901960780000002" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Open App">
+                                            <color key="titleColor" red="0.94509803920000002" green="0.76862745099999996" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.60784313729999995" green="0.34901960780000002" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
+                            </stackView>
                         </subviews>
+                        <color key="backgroundColor" red="0.20392156859999999" green="0.59607843140000005" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="GcN-lo-r42" secondAttribute="bottom" constant="8" symbolic="YES" id="0Q0-KW-PJ6"/>
-                            <constraint firstItem="GcN-lo-r42" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" constant="20" symbolic="YES" id="6Vq-gs-PHe"/>
-                            <constraint firstAttribute="trailing" secondItem="GcN-lo-r42" secondAttribute="trailing" constant="20" symbolic="YES" id="L8K-9R-egU"/>
-                            <constraint firstItem="GcN-lo-r42" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="8" symbolic="YES" id="mYS-Cv-VNx"/>
+                            <constraint firstItem="Mfp-oE-hxw" firstAttribute="width" secondItem="S3S-Oj-5AN" secondAttribute="width" id="0ds-B0-p3O"/>
+                            <constraint firstItem="R0N-JT-Jvi" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" id="2Af-BX-DWH"/>
+                            <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="Mfp-oE-hxw" secondAttribute="bottom" id="a4m-BK-nZj"/>
+                            <constraint firstItem="Mfp-oE-hxw" firstAttribute="centerX" secondItem="S3S-Oj-5AN" secondAttribute="centerX" id="cbr-QR-Gbe"/>
+                            <constraint firstItem="Mfp-oE-hxw" firstAttribute="top" secondItem="R0N-JT-Jvi" secondAttribute="bottom" id="dG0-eU-KhX"/>
+                            <constraint firstItem="R0N-JT-Jvi" firstAttribute="width" secondItem="S3S-Oj-5AN" secondAttribute="width" id="qav-eN-Dzz"/>
+                            <constraint firstItem="R0N-JT-Jvi" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" id="tWY-KE-KHZ"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="37"/>
                     <connections>
                         <outlet property="WidgetSuperView" destination="S3S-Oj-5AN" id="Qxv-rv-hRV"/>
+                        <outlet property="imageView" destination="ZRx-en-9HL" id="Xw1-iZ-dfA"/>
+                        <outlet property="imageViewHeightConstraint" destination="6Wx-e0-yeU" id="ABO-wo-Yfb"/>
+                        <outlet property="imageViewWidthConstraint" destination="ffk-Vd-5Dc" id="1W0-NJ-GRp"/>
+                        <outlet property="labelView" destination="GcN-lo-r42" id="L3T-Zu-I3v"/>
+                        <outlet property="upperContentView" destination="R0N-JT-Jvi" id="2Xg-cn-SN3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
