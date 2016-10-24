@@ -9,13 +9,21 @@
 import UIKit
 import NotificationCenter
 import QRCode
+import CoreLocation
 
 class TodayViewController: UIViewController, NCWidgetProviding {
     
-    // Color Definitions
-    // Red c0392b
-    // Orange e67e22
-    //
+    // MARK: - Display Parameters
+    enum defaultParameters {
+        static let qrSideLength: CGFloat = 95.0
+        static let buttonBarHeight: CGFloat = 32.0
+        static let qrErrorCorrection = QRCode.ErrorCorrection.High
+        static let whiteColor = UIColor(red: 189/255, green: 195/255, blue: 199/255, alpha: 1)
+        static let primaryColor = UIColor.darkGray
+    }
+    
+    
+    
     
     let defaults = UserDefaults(suiteName: "group.method.WidgetDemo")
     
@@ -23,74 +31,139 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet var widgetSuperView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var upperContentView: UIView!
-    @IBOutlet weak var buttonContainerView: UIView!
     @IBOutlet weak var labelView: UILabel!
     @IBOutlet weak var imageViewWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var imageViewHeightConstraint: NSLayoutConstraint!
     
     var qr: QRCode?
     
-    var selectedColor: UIColor?
-    var selectedCIColor: CIColor? {
-        get {
-            if let selectedColor = selectedColor {
-                return selectedColor.ciColor
-            } else {
-                return nil
-            }
-        }
+    var currentDistance: Double = 0.0
+    var timer: Timer!
+    var movingTowardsTarget = true
+    var arrived = false
+    
+    var selectedColor = defaultParameters.primaryColor
+    var selectedCIColor: CIColor { get { return selectedColor.coreImageColor } }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        qr = defaultQRCode()
+        currentDistance = 14.3
+        timer = Timer()
+        movingTowardsTarget = true
+        arrived = false
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         //  VERY IMPORTANT IN iOS 10 to expand widget height
-        self.extensionContext?.widgetLargestAvailableDisplayMode = NCWidgetDisplayMode.expanded
-        if let image = imageView.image {
-            print("Dimensions of image view's image (w x h): \(image.size.width) x \(image.size.height)")
-        } else {
-            print("Image view has no image!")
-        }
-        
-        guard let validatedQR = QRCode(URL(string: "www.method.com")!) else {
-            fatalError("Could not generate QR Code!")
-        }
-        qr = validatedQR
+        //self.extensionContext?.widgetLargestAvailableDisplayMode = NCWidgetDisplayMode.expanded
         imageViewWidthConstraint.constant = 0
-        imageViewHeightConstraint.constant = validatedQR.size.height
-        
+
         selectedColor = getColorFromDefaults()
+
+        currentDistance = 14.3
+        updateQR()
         
-        //updateSubViewColor()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+                updateSubViewsColor()
+        //updateQR()
+        guard qr != nil else {
+            fatalError("Could not generate QR Code")
+        }
+        let qrHeight = qr!.size.height
+        imageViewHeightConstraint.constant = qrHeight
+        let totalHeight = qrHeight
+        imageViewHeightConstraint.constant = qrHeight
+        self.preferredContentSize.height = totalHeight
+        view.layoutSubviews()
         
+        timer = Timer.scheduledTimer(timeInterval: 0.3,
+                                     target: self,
+                                     selector: #selector(timedUpdate),
+                                     userInfo: nil,
+                                     repeats: true)
+    }
+    
+    func resetWalkingTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(timedUpdate), userInfo: nil, repeats: true)
+    }
+    
+    func timedUpdate() {
+        if movingTowardsTarget {
+            if currentDistance > 5 {
+                currentDistance -= 0.28427
+                updateLabel()
+            } else {
+                arrived = true
+                updateLabel()
+                showImageView()
+                movingTowardsTarget = false
+                timer.invalidate()
+                timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(resetWalkingTimer), userInfo: nil, repeats: false)
+            }
+        } else {
+            if currentDistance < 42 {
+                if arrived {
+                    hideImageView()
+                    arrived = false
+                }
+                currentDistance += 0.4893
+                updateLabel()
+            } else {
+                movingTowardsTarget = true
+                timer.invalidate()
+                timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(resetWalkingTimer), userInfo: nil, repeats: false)
+            }
+        }
+    }
+    
+    func updateLabel() {
+        if currentDistance > 5 {
+            labelView.text = String(format: "Distance to: %.1f", currentDistance)
+        } else {
+            labelView.text = "Use the QR Code!"
+        }
+    }
+    func updateWidgetHeight() {
         
-        
+        if qr == nil {
+            
+        }
     }
     
     func updateQR() {
         if let qrString = defaults?.string(forKey: "qrString") {
             if let url = URL(string: qrString) {
-                if var qr = QRCode(url) {
-                    //Error Correction Level
-                    //Size
-                    //Color
+                if let qr = QRCode(url) {
                     self.qr = qr
                 }
             }
+        } else { // No user defaults detected, so generate a default QR
+            print("Warning: No UserDefault for \"qrString\" found, loading default QR-Code")
+            self.qr = defaultQRCode()
         }
-        print("Warning: No UserDefault for \"qrString\" found, loading default QR-Code")
-        qr = defaultQRCode()
+        qr!.size.width = defaultParameters.qrSideLength
+        qr!.size.height = defaultParameters.qrSideLength
+        imageView.image = qr!.image
+        imageViewHeightConstraint.constant = qr!.size.height
     }
     
     func defaultQRCode() -> QRCode {
-        let url = URL(string: "www.method.com")
-        var qr = QRCode(url!)
-        qr!.errorCorrection = QRCode.ErrorCorrection.High
-        //size?
-        //color?
-        return qr!
+        guard let url      = URL(string: "www.method.com") else { fatalError("Couldn't format string") }
+        guard var qr       = QRCode(url) else { fatalError("Error: Could not generate default QR!") }
+        qr.errorCorrection = defaultParameters.qrErrorCorrection
+        qr.size = CGSize(width: defaultParameters.qrSideLength, height: defaultParameters.qrSideLength)
+        qr.color = selectedCIColor
+        return qr
         
     }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -110,26 +183,21 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     
-    @IBAction func qrButtonTapped(_ sender: AnyObject) {
-        if imageViewWidthConstraint.constant > 0 {
-            hideImageView()
-        } else {
-            updateQR()
-            guard let qrImage = qr?.image else {
-                print("Warning: Couldn't load QR Image, using default")
-                qr = defaultQRCode()
-                imageView.image = qr!.image
-                return
-            }
-            imageView.image = qrImage
-            showImageView()
+//    @IBAction func qrButtonTapped(_ sender: AnyObject) {
+//        if imageViewWidthConstraint.constant > 0 { hideImageView() }
+//        else { showImageView() }
+//    }
+    
+    @IBAction func openAppTapped(_ sender: AnyObject) {
+        let hostURL = URL(string: "WidgetDemo:") //
+        if let appurl = hostURL {
+            self.extensionContext!.open(appurl, completionHandler: nil)
         }
     }
     
     func updateSubViewsColor() {
         self.view.backgroundColor = selectedColor
         upperContentView.backgroundColor = selectedColor
-        buttonContainerView.backgroundColor = selectedColor
     }
     
     func hideImageView() {
@@ -137,13 +205,16 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     func showImageView() {
-        guard let image = imageView.image else {
+        guard let qr = qr else {
+            fatalError("Error: No QR Generated!")
+        }
+        guard let image = qr.image else {
             fatalError("ERROR: Tried to display widget imageView with no image!")
         }
-        let width   = image.size.width
-        let height  = image.size.height
-        imageViewWidthConstraint.constant   = width
-        imageViewHeightConstraint.constant  = height
+        imageView.image = image
+        imageViewWidthConstraint.constant = image.size.width
+        imageViewHeightConstraint.constant = image.size.height
+
     }
     
     // Helper method to return the UIColor recorded into the UserDefaults, if error occurs, return clear color

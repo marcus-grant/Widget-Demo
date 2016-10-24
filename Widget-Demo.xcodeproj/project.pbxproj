@@ -16,6 +16,7 @@
 		7E1F90971DA44EB200569816 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1F90961DA44EB200569816 /* TodayViewController.swift */; };
 		7E1F909A1DA44EB200569816 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E1F90981DA44EB200569816 /* MainInterface.storyboard */; };
 		7E1F909E1DA44EB200569816 /* Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7E1F90911DA44EB200569816 /* Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7E5575C11DBA617500FCB2CD /* b2ojrowza_Directions-from-158-Lafayette-St--New-York--NY-10013--USA-to-158-Lafayette-St--New-York--NY-10013--USA.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 7E5575C01DBA617500FCB2CD /* b2ojrowza_Directions-from-158-Lafayette-St--New-York--NY-10013--USA-to-158-Lafayette-St--New-York--NY-10013--USA.gpx */; };
 		95ECF3EADFA12914BD950EA3 /* Pods_Widget_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FC0FE9E26C73FCF80F33695 /* Pods_Widget_Demo.framework */; };
 		D9CCF590562AA414BD6974A0 /* Pods_Widget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C11D711C42262D24D3519B4 /* Pods_Widget.framework */; };
 /* End PBXBuildFile section */
@@ -62,6 +63,9 @@
 		7E1F90961DA44EB200569816 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		7E1F90991DA44EB200569816 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		7E1F909B1DA44EB200569816 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7E5575BF1DBA5F9500FCB2CD /* methodPath.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = methodPath.gpx; sourceTree = "<group>"; };
+		7E5575C01DBA617500FCB2CD /* b2ojrowza_Directions-from-158-Lafayette-St--New-York--NY-10013--USA-to-158-Lafayette-St--New-York--NY-10013--USA.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "b2ojrowza_Directions-from-158-Lafayette-St--New-York--NY-10013--USA-to-158-Lafayette-St--New-York--NY-10013--USA.gpx"; sourceTree = "<group>"; };
+		7E5575C21DBA650E00FCB2CD /* outsideMethod.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = outsideMethod.gpx; path = ../outsideMethod.gpx; sourceTree = "<group>"; };
 		7ECEE5501DAE9745009FF8D9 /* Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Widget.entitlements; sourceTree = "<group>"; };
 		7EF448961DAC50D600B08A0C /* Widget-Demo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Widget-Demo.entitlements"; sourceTree = "<group>"; };
 		D0191F2FF563D9EE977B94D8 /* Pods-Widget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Widget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Widget/Pods-Widget.debug.xcconfig"; sourceTree = "<group>"; };
@@ -118,6 +122,9 @@
 				7E1F90821DA44A2800569816 /* Assets.xcassets */,
 				7E1F90841DA44A2800569816 /* LaunchScreen.storyboard */,
 				7E1F90871DA44A2800569816 /* Info.plist */,
+				7E5575C21DBA650E00FCB2CD /* outsideMethod.gpx */,
+				7E5575BF1DBA5F9500FCB2CD /* methodPath.gpx */,
+				7E5575C01DBA617500FCB2CD /* b2ojrowza_Directions-from-158-Lafayette-St--New-York--NY-10013--USA-to-158-Lafayette-St--New-York--NY-10013--USA.gpx */,
 			);
 			path = "Widget-Demo";
 			sourceTree = "<group>";
@@ -218,6 +225,9 @@
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
 							};
+							com.apple.SafariKeychain = {
+								enabled = 1;
+							};
 						};
 					};
 					7E1F90901DA44EB200569816 = {
@@ -227,6 +237,9 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.SafariKeychain = {
 								enabled = 1;
 							};
 						};
@@ -258,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E1F90861DA44A2800569816 /* LaunchScreen.storyboard in Resources */,
+				7E5575C11DBA617500FCB2CD /* b2ojrowza_Directions-from-158-Lafayette-St--New-York--NY-10013--USA-to-158-Lafayette-St--New-York--NY-10013--USA.gpx in Resources */,
 				7E1F90831DA44A2800569816 /* Assets.xcassets in Resources */,
 				7E1F90811DA44A2800569816 /* Main.storyboard in Resources */,
 			);
