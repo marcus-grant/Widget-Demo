@@ -1,5 +1,5 @@
 # Uncomment this line to define a global platform for your project
-# platform :ios, '9.0'
+ platform :ios, '10.0'
 
 target 'Widget' do
   # Comment this line if you're not using Swift and don't want to use dynamic frameworks
@@ -8,7 +8,8 @@ target 'Widget' do
 
   # Pods for Widget
   pod "QRCode"
-
+  pod 'SwiftyJSON'
+  pod 'Alamofire', '~> 4.0'
 end
 
 target 'Widget-Demo' do
@@ -17,5 +18,8 @@ target 'Widget-Demo' do
 
   # Pods for Widget-Demo
   pod "QRCode"
+
+  pod 'Alamofire', '~> 4.0'
+  pod 'SwiftyJSON'
 
 end
