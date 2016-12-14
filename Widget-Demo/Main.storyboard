@@ -1,15 +1,44 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6QE-Aw-2vs">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Settings Table View Controller-->
+        <scene sceneID="XjI-Nd-rvS">
+            <objects>
+                <tableViewController title="Settings" modalPresentationStyle="pageSheet" id="dA2-1m-cRM" userLabel="Settings Table View Controller" customClass="SettingsTableViewController" customModule="Widget_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="cXy-M8-u82" userLabel="Settings View">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="settingsCell" id="upJ-32-OAD">
+                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="upJ-32-OAD" id="zYj-xX-pXe">
+                                    <frame key="frameInset" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="dA2-1m-cRM" id="kKw-Ds-Un6"/>
+                            <outlet property="delegate" destination="dA2-1m-cRM" id="RmJ-rF-vvT"/>
+                        </connections>
+                    </tableView>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iEf-Oa-Fiw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1753" y="-869"/>
+        </scene>
+        <!--Main View Controller-->
         <scene sceneID="v00-nH-4kg">
             <objects>
-                <viewController id="q9R-6q-fmQ" sceneMemberID="viewController">
+                <viewController id="q9R-6q-fmQ" userLabel="Main View Controller" customClass="MainViewController" customModule="Widget_Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hmq-7g-KY4"/>
                         <viewControllerLayoutGuide type="bottom" id="sja-An-QXe"/>
@@ -46,6 +75,9 @@
                     <navigationItem key="navigationItem" id="n1R-Dv-n6q">
                         <barButtonItem key="rightBarButtonItem" image="settings-icon" style="plain" id="eMB-N5-krU">
                             <color key="tintColor" red="0.9882352941176471" green="0.78823529411764703" blue="0.090196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="dA2-1m-cRM" kind="presentation" id="Vau-7f-IyL"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
@@ -53,10 +85,10 @@
             </objects>
             <point key="canvasLocation" x="959.20000000000005" y="-190.25487256371815"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="MP3-eR-aCv">
             <objects>
-                <viewController id="RUa-LU-zlV" sceneMemberID="viewController">
+                <viewController id="RUa-LU-zlV" userLabel="Detail View Controller" customClass="DetailViewController" customModule="Widget_Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gVH-4o-lFv"/>
                         <viewControllerLayoutGuide type="bottom" id="x1z-eL-UNo"/>
@@ -76,9 +108,10 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6QE-Aw-2vs" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ynV-XO-i8z">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ynV-XO-i8z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

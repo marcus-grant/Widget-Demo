@@ -10,7 +10,7 @@ import UIKit
 import NotificationCenter
 
 
-class ViewController: UIViewController {
+class ColorGridViewController: UIViewController {
 
     let redColor = UIColor(red: 192, green: 57, blue: 43)
     let orangeColor = UIColor.hexStringToUIColor("#E67E22")

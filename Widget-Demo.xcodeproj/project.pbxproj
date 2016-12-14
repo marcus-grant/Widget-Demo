@@ -9,16 +9,23 @@
 /* Begin PBXBuildFile section */
 		7E15B82E1DFB31A000F39067 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E15B82D1DFB31A000F39067 /* Main.storyboard */; };
 		7E15B8321DFB4E1600F39067 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E15B8311DFB4E1600F39067 /* Assets.xcassets */; };
+		7E15B8361DFB6B1F00F39067 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E15B8331DFB6B1F00F39067 /* Alamofire.framework */; };
+		7E15B8371DFB6B1F00F39067 /* QRCode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E15B8341DFB6B1F00F39067 /* QRCode.framework */; };
+		7E15B8381DFB6B1F00F39067 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E15B8351DFB6B1F00F39067 /* SwiftyJSON.framework */; };
+		7E15B8391DFB6B2800F39067 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E15B8331DFB6B1F00F39067 /* Alamofire.framework */; };
+		7E15B83A1DFB6B2800F39067 /* QRCode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E15B8341DFB6B1F00F39067 /* QRCode.framework */; };
+		7E15B83B1DFB6B2800F39067 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E15B8351DFB6B1F00F39067 /* SwiftyJSON.framework */; };
+		7E15B83F1E01A4E400F39067 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E15B83E1E01A4E400F39067 /* MainViewController.swift */; };
+		7E15B8411E01A50400F39067 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E15B8401E01A50400F39067 /* DetailViewController.swift */; };
+		7E15B8451E01A5D600F39067 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E15B8441E01A5D600F39067 /* SettingsTableViewController.swift */; };
 		7E1F907C1DA44A2800569816 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1F907B1DA44A2800569816 /* AppDelegate.swift */; };
-		7E1F907E1DA44A2800569816 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1F907D1DA44A2800569816 /* ViewController.swift */; };
+		7E1F907E1DA44A2800569816 /* ColorGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1F907D1DA44A2800569816 /* ColorGridViewController.swift */; };
 		7E1F90811DA44A2800569816 /* ColorGrid.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E1F907F1DA44A2800569816 /* ColorGrid.storyboard */; };
 		7E1F90941DA44EB200569816 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E1F90931DA44EB200569816 /* NotificationCenter.framework */; };
 		7E1F90971DA44EB200569816 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1F90961DA44EB200569816 /* TodayViewController.swift */; };
 		7E1F909A1DA44EB200569816 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E1F90981DA44EB200569816 /* MainInterface.storyboard */; };
 		7E1F909E1DA44EB200569816 /* Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7E1F90911DA44EB200569816 /* Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7E9EB11F1DF1FBC70046891A /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9EB11E1DF1FBC70046891A /* APIController.swift */; };
-		8D4DDC6DC19BFEFE25EA9C14 /* Pods_Widget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9AD6BDDAFDB0170FA045248 /* Pods_Widget.framework */; };
-		D5247AD6D33FF2BC1D4816C4 /* Pods_Widget_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBBF3ED5E9E43F8924AA32DD /* Pods_Widget_Demo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,9 +58,15 @@
 		793A74004D66696124FA4582 /* Pods-Widget-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Widget-Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Widget-Demo/Pods-Widget-Demo.release.xcconfig"; sourceTree = "<group>"; };
 		7E15B82D1DFB31A000F39067 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		7E15B8311DFB4E1600F39067 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7E15B8331DFB6B1F00F39067 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Widget-Demo-dpcbnelcdgqfuybtaewalkcrkhco/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
+		7E15B8341DFB6B1F00F39067 /* QRCode.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QRCode.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Widget-Demo-dpcbnelcdgqfuybtaewalkcrkhco/Build/Products/Debug-iphonesimulator/QRCode/QRCode.framework"; sourceTree = "<group>"; };
+		7E15B8351DFB6B1F00F39067 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Widget-Demo-dpcbnelcdgqfuybtaewalkcrkhco/Build/Products/Debug-iphonesimulator/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
+		7E15B83E1E01A4E400F39067 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		7E15B8401E01A50400F39067 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		7E15B8441E01A5D600F39067 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		7E1F90781DA44A2800569816 /* Widget-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Widget-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E1F907B1DA44A2800569816 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7E1F907D1DA44A2800569816 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7E1F907D1DA44A2800569816 /* ColorGridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorGridViewController.swift; sourceTree = "<group>"; };
 		7E1F90801DA44A2800569816 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ColorGrid.storyboard; sourceTree = "<group>"; };
 		7E1F90871DA44A2800569816 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E1F90911DA44EB200569816 /* Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Widget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,14 +74,10 @@
 		7E1F90961DA44EB200569816 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		7E1F90991DA44EB200569816 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		7E1F909B1DA44EB200569816 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7E5575BF1DBA5F9500FCB2CD /* methodPath.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = methodPath.gpx; sourceTree = "<group>"; };
-		7E5575C21DBA650E00FCB2CD /* outsideMethod.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = outsideMethod.gpx; path = ../outsideMethod.gpx; sourceTree = "<group>"; };
 		7E9EB11E1DF1FBC70046891A /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		7ECEE5501DAE9745009FF8D9 /* Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Widget.entitlements; sourceTree = "<group>"; };
 		7EF448961DAC50D600B08A0C /* Widget-Demo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Widget-Demo.entitlements"; sourceTree = "<group>"; };
-		C9AD6BDDAFDB0170FA045248 /* Pods_Widget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Widget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0191F2FF563D9EE977B94D8 /* Pods-Widget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Widget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Widget/Pods-Widget.debug.xcconfig"; sourceTree = "<group>"; };
-		FBBF3ED5E9E43F8924AA32DD /* Pods_Widget_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Widget_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +85,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D5247AD6D33FF2BC1D4816C4 /* Pods_Widget_Demo.framework in Frameworks */,
+				7E15B8361DFB6B1F00F39067 /* Alamofire.framework in Frameworks */,
+				7E15B8371DFB6B1F00F39067 /* QRCode.framework in Frameworks */,
+				7E15B8381DFB6B1F00F39067 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,14 +95,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E15B8391DFB6B2800F39067 /* Alamofire.framework in Frameworks */,
+				7E15B83A1DFB6B2800F39067 /* QRCode.framework in Frameworks */,
+				7E15B83B1DFB6B2800F39067 /* SwiftyJSON.framework in Frameworks */,
 				7E1F90941DA44EB200569816 /* NotificationCenter.framework in Frameworks */,
-				8D4DDC6DC19BFEFE25EA9C14 /* Pods_Widget.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E15B8421E01A50E00F39067 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7E15B8311DFB4E1600F39067 /* Assets.xcassets */,
+				7E15B82D1DFB31A000F39067 /* Main.storyboard */,
+				7E1F907F1DA44A2800569816 /* ColorGrid.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		7E15B8431E01A52000F39067 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7E15B83E1E01A4E400F39067 /* MainViewController.swift */,
+				7E15B8401E01A50400F39067 /* DetailViewController.swift */,
+				7E1F907D1DA44A2800569816 /* ColorGridViewController.swift */,
+				7E15B8441E01A5D600F39067 /* SettingsTableViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
 		7E1F906F1DA44A2800569816 = {
 			isa = PBXGroup;
 			children = (
@@ -115,15 +149,11 @@
 		7E1F907A1DA44A2800569816 /* Widget-Demo */ = {
 			isa = PBXGroup;
 			children = (
+				7E15B8431E01A52000F39067 /* View Controllers */,
+				7E15B8421E01A50E00F39067 /* Views */,
 				7EF448961DAC50D600B08A0C /* Widget-Demo.entitlements */,
-				7E1F907B1DA44A2800569816 /* AppDelegate.swift */,
-				7E1F907D1DA44A2800569816 /* ViewController.swift */,
-				7E1F907F1DA44A2800569816 /* ColorGrid.storyboard */,
 				7E1F90871DA44A2800569816 /* Info.plist */,
-				7E5575C21DBA650E00FCB2CD /* outsideMethod.gpx */,
-				7E5575BF1DBA5F9500FCB2CD /* methodPath.gpx */,
-				7E15B82D1DFB31A000F39067 /* Main.storyboard */,
-				7E15B8311DFB4E1600F39067 /* Assets.xcassets */,
+				7E1F907B1DA44A2800569816 /* AppDelegate.swift */,
 			);
 			path = "Widget-Demo";
 			sourceTree = "<group>";
@@ -131,9 +161,10 @@
 		7E1F90921DA44EB200569816 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7E15B8331DFB6B1F00F39067 /* Alamofire.framework */,
+				7E15B8341DFB6B1F00F39067 /* QRCode.framework */,
+				7E15B8351DFB6B1F00F39067 /* SwiftyJSON.framework */,
 				7E1F90931DA44EB200569816 /* NotificationCenter.framework */,
-				C9AD6BDDAFDB0170FA045248 /* Pods_Widget.framework */,
-				FBBF3ED5E9E43F8924AA32DD /* Pods_Widget_Demo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -368,8 +399,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E1F907E1DA44A2800569816 /* ViewController.swift in Sources */,
+				7E15B83F1E01A4E400F39067 /* MainViewController.swift in Sources */,
+				7E15B8451E01A5D600F39067 /* SettingsTableViewController.swift in Sources */,
+				7E1F907E1DA44A2800569816 /* ColorGridViewController.swift in Sources */,
 				7E1F907C1DA44A2800569816 /* AppDelegate.swift in Sources */,
+				7E15B8411E01A50400F39067 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,7 +541,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5D65DC2FF8F9E6BA63E0F939 /* Pods-Widget-Demo.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Widget-Demo/Widget-Demo.entitlements";
 				DEVELOPMENT_TEAM = EY2GX6DLS6;
@@ -523,7 +556,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 793A74004D66696124FA4582 /* Pods-Widget-Demo.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Widget-Demo/Widget-Demo.entitlements";
 				DEVELOPMENT_TEAM = EY2GX6DLS6;
