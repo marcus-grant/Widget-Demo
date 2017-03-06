@@ -1,6 +1,6 @@
 //
 //  QRCode.swift
-//  Example
+//  QRCode
 //
 //  Created by Alexander Schuch on 25/01/15.
 //  Copyright (c) 2015 Alexander Schuch. All rights reserved.
@@ -28,9 +28,6 @@ public struct QRCode {
         case High = "H"
     }
     
-    /// CIQRCodeGenerator generates 27x27px images per default
-    fileprivate let DefaultQRCodeSize = CGSize(width: 27, height: 27)
-    
     /// Data contained in the generated QRCode
     public let data: Data
     
@@ -55,7 +52,7 @@ public struct QRCode {
     }
     
     public init?(_ string: String) {
-        if let data = string.data(using: String.Encoding.isoLatin1) {
+        if let data = string.data(using: .isoLatin1) {
             self.data = data
         } else {
             return nil
@@ -63,7 +60,7 @@ public struct QRCode {
     }
     
     public init?(_ url: URL) {
-        if let data = url.absoluteString.data(using: String.Encoding.isoLatin1) {
+        if let data = url.absoluteString.data(using: .isoLatin1) {
             self.data = data
         } else {
             return nil
@@ -75,7 +72,13 @@ public struct QRCode {
     /// The QRCode's UIImage representation
     public var image: UIImage? {
         guard let ciImage = ciImage else { return nil }
-        return UIImage(ciImage: ciImage)
+        
+        // Size
+        let ciImageSize = ciImage.extent.size
+        let widthRatio = size.width / ciImageSize.width
+        let heightRatio = size.height / ciImageSize.height
+        
+        return ciImage.nonInterpolatedImage(withScale: Scale(dx: widthRatio, dy: heightRatio))
     }
     
     /// The QRCode's CIImage representation
@@ -95,13 +98,6 @@ public struct QRCode {
         colorFilter.setValue(color, forKey: "inputColor0")
         colorFilter.setValue(backgroundColor, forKey: "inputColor1")
         
-        // Size
-        let sizeRatioX = size.width / DefaultQRCodeSize.width
-        let sizeRatioY = size.height / DefaultQRCodeSize.height
-        let transform = CGAffineTransform(scaleX: sizeRatioX, y: sizeRatioY)
-        guard let transformedImage = colorFilter.outputImage?.applying(transform) else { return nil }
-        
-        return transformedImage
+        return colorFilter.outputImage
     }
-    
 }

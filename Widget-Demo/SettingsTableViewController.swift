@@ -10,10 +10,26 @@ import UIKit
 
 class SettingsTableViewController: UITableViewController {
     
+    enum SettingSections {
+        case context
+    }
+
     let sections = ["Contexts"]
-    let sectionItem = ["Order", "Check-In", "Map", "Compass"]
-    
-    let defaults = UserDefaults(suiteName: "group.method.WidgetDemo")
+    let contexts = MockContext.allValues
+    var defaults: UserDefaults
+    var currentContext: String //TODO: modify
+
+    required init?(coder aDecoder: NSCoder) {
+        guard let defaults = UserDefaults(suiteName: "group.method.WidgetDemo")
+            else {
+                print("No defaults found using suiteName: \"group.method.WidgetDemo\"")
+                fatalError("Couldn't load defaults")
+        }; //return defaults
+        self.currentContext = MockContext.Order.rawValue
+        self.defaults = defaults
+        super.init(coder: aDecoder)
+    }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +46,10 @@ class SettingsTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        currentContext = getContextString(fromDefaults: defaults)
+    }
+
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -39,7 +59,7 @@ class SettingsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return sectionItem.count
+        return contexts.count
     }
 
     
@@ -47,8 +67,7 @@ class SettingsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath)
 
         // Configure the cell...
-        cell.textLabel!.text = sectionItem[indexPath.row]
-        
+        cell.textLabel!.text = contexts[indexPath.row]        
 
         return cell
     }
@@ -60,8 +79,33 @@ class SettingsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let context = contexts[indexPath.row]
+        print("SettingsVC has selected \(context) as context")
+        defaults.set(context, forKey: "context")
+        defaults.synchronize()
+        //self.navigationController!.popViewController(animated: true)
+        //self.performSegue(withIdentifier: "contextSelectionSegue", sender: tableView)
     }
 
+    func getContextString(fromDefaults defaults: UserDefaults) -> String {
+        let contextKey = "context"
+        guard let contextObject = defaults.object(forKey: contextKey)
+            else {
+                var readContextErrorMSG = "Couln't get stored context for MockContext"
+                readContextErrorMSG += " instance with key \(contextKey)"
+                print(readContextErrorMSG)
+                return MockContext.Order.rawValue
+        }; guard let contextString = contextObject as? String
+            else {
+                let readContextNotString = "Stored context value not a string"
+                fatalError(readContextNotString)
+        }; guard let validatedContext = MockContext(rawValue: contextString)
+            else {
+                //TODO: Dialog here to point out the false enum match
+                return MockContext.Order.rawValue
+        }; return validatedContext.rawValue
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -99,13 +143,14 @@ class SettingsTableViewController: UITableViewController {
 
     
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        
-    }
     
+    
+//    @IBAction func changeContext(segue: UIStoryboardSegue) {
+//        // Write changes to defaults so parent mockup controller knows which scene to display
+//    }
+//    
+//    @IBAction func unwindWithSettings(segue: UIStoryboardSegue) {
+//        
+//    }
 
 }
